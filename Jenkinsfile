@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps {
-                bat 
+                bat 'docker build -t tu5.'
+            }
         }
         stage('Deploy'){
             steps{
