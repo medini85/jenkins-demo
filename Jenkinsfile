@@ -1,19 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Coding') {
+        stage('Build') {
             steps {
-                echo 'Hare Krishna 1'
+                echo 'Building application... '
             }
         }
-        stage('Testing') {
+        stage('Test') {
             steps {
-                echo 'Hare Krishna 2'
+                echo 'Running tests...'
             }
         }
-        stage('Deployment') {
+        stage('Run Application') {
             steps {
-                echo 'Hare Krishna 3'
+                echo 'run application'
+                bat 'python app.py'
             }
         }
     }
