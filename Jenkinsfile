@@ -7,20 +7,16 @@ pipeline {
             }
         }
         stage('Build Docker Image'){
-            steps {bat 'docker build - t tut5
-                
+            steps {bat 'docker build - t tut5.'
             }
         }
         stage('Deploy'){
             steps{
-                bat 'dockerstop constrainertut25 || exist0
-                bat'run 'docker run-d-p 5400]]|| 
-                  
-            steps{btdocker solk
-              { {
-            steps {
-                echo 'run application'
-                bat 'python app.py'
+                bat 'docker stop constrainertut25 || exist0'
+                bat 'docker rm containertut5 || exit0;
+                bat'docker run-d-p 5400:5000 --name containertut5 tut5' 
             }
+        } 
     }
-}bat '' ..dona
+}
+              
