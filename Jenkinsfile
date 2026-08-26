@@ -6,22 +6,19 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build & Run') {
+        stage('Build Docker image') {
             steps {
-                script {
-                    bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t tut5 .'
-                    bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm -f containertut5 || true'
-                    bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d -p 5000:5000 --name containertut5 tut5'
-                }
+                bat 'docker build -t tut5 .'
             }
         }
         stage('Deploy') {
             steps {
-                script {
-                    echo 'Deploying application successfully!'
-                }
+                bat 'docker stop containertut5 || exit 0'
+                bat 'docker rm containertut5 || exit 0'
+                bat 'docker run -d -p 5400:5000 --name containertut5 tut5'
             }
         }
     }
 }
+
               
