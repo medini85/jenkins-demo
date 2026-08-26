@@ -1,23 +1,26 @@
 pipeline {
     agent any
+
     stages {
-        stage('Checkout'){
+        stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-        stage('Build Docker Image'){
+        
+        stage('Build Docker Image') {
             steps {
-                bat '"C:\Users\parab\OneDrive\Desktop\Docker Desktop.lnk" .'
+                bat 'docker build -t tut5 .'
             }
         }
-        stage('Deploy'){
-            steps{
-                bat 'docker stop containertut5 || exist 0'
+        
+        stage('Deploy') {
+            steps {
+                bat 'docker stop containertut5 || exit 0'
                 bat 'docker rm containertut5 || exit 0'
-                bat 'docker run-d-p 5400:5000 --name containertut5 tut5' 
+                bat 'docker run -d -p 5400:5000 --name containertut5 tut5'
             }
-        } 
+        }
     }
 }
               
