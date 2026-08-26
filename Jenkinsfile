@@ -10,15 +10,15 @@ pipeline {
         
         stage('Build Docker Image') {
             steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t tut5 .'
+                bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t tut5 .'
             }
         }
         
         stage('Deploy') {
             steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" stop containertut5 || exit 0'
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" rm containertut5 || exit 0'
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d -p 5400:5000 --name containertut5 tut5'
+                bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop containertut5 || exit 0'
+                bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm containertut5 || exit 0'
+                bat '"C:\\Users\\parab\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d -p 5400:5000 --name containertut5 tut5'
             }
         }
     }
