@@ -1,7 +1,8 @@
-FROM python:3.9-slim
+FROM alpine:latest
+RUN apk add --no-cache python3 py3-pip
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 COPY app.py .
 EXPOSE 5000
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
