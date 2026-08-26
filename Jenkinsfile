@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t tut5 .'
+                    bat'"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t tut5 .'
                 }
             }
         }
